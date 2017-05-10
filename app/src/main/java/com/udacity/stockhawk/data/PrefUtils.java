@@ -81,6 +81,7 @@ public final class PrefUtils {
 
         if (displayMode.equals(absoluteKey)) {
             editor.putString(key, percentageKey);
+
         } else {
             editor.putString(key, absoluteKey);
         }

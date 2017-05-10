@@ -5,6 +5,7 @@ import android.database.Cursor;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
@@ -42,7 +43,12 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     @SuppressWarnings("WeakerAccess")
     @BindView(R.id.error)
     TextView error;
+    @SuppressWarnings("WeakerAccess")
+    @BindView(R.id.fab)
+    FloatingActionButton fab;
+
     private StockAdapter adapter;
+
 
     @Override
     public void onClick(String symbol) {
@@ -55,6 +61,8 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+
+        fab.setContentDescription(getString(R.string.fab_button_description));
 
         adapter = new StockAdapter(this, this);
         stockRecyclerView.setAdapter(adapter);
@@ -171,7 +179,21 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         getMenuInflater().inflate(R.menu.main_activity_settings, menu);
         MenuItem item = menu.findItem(R.id.action_change_units);
         setDisplayModeMenuItemIcon(item);
+
+        setContentTitle(item);
+
         return true;
+    }
+
+    private void setContentTitle(MenuItem item) {
+        String title = PrefUtils.getDisplayMode(this);
+        if (title.equals(getString(R.string.pref_display_mode_absolute_key))){
+            item.setTitle(getString(R.string.change_units_description_abs));
+        }
+        else
+        if (title.equals(getString(R.string.pref_display_mode_percentage_key))){
+            item.setTitle(getString(R.string.change_units_description_per));
+        }
     }
 
     @Override
@@ -181,6 +203,9 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         if (id == R.id.action_change_units) {
             PrefUtils.toggleDisplayMode(this);
             setDisplayModeMenuItemIcon(item);
+
+            setContentTitle(item);
+
             adapter.notifyDataSetChanged();
             return true;
         }
