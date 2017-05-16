@@ -2,16 +2,19 @@ package com.udacity.stockhawk.ui;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.udacity.stockhawk.R;
 import com.udacity.stockhawk.data.Contract;
 import com.udacity.stockhawk.data.PrefUtils;
+import com.udacity.stockhawk.details.DetailActivity;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
@@ -135,8 +138,13 @@ class StockAdapter extends RecyclerView.Adapter<StockAdapter.StockViewHolder> {
             int adapterPosition = getAdapterPosition();
             cursor.moveToPosition(adapterPosition);
             int symbolColumn = cursor.getColumnIndex(Contract.Quote.COLUMN_SYMBOL);
-            clickHandler.onClick(cursor.getString(symbolColumn));
 
+            String symbol = cursor.getString(symbolColumn);
+            clickHandler.onClick(symbol);
+
+            Intent intent = new Intent(context,DetailActivity.class);
+            intent.putExtra("symbol_key", symbol);
+            context.startActivity(intent);
         }
 
 

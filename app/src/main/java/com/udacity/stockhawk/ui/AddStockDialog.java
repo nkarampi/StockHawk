@@ -37,8 +37,6 @@ public class AddStockDialog extends DialogFragment {
 
         ButterKnife.bind(this, custom);
 
-       // stock.setContentDescription(getString(R.string.dialog_hint_description));
-
         stock.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {

@@ -3,19 +3,18 @@
 
     <string name="pref_stocks_initialized_key" translatable="false">initialized</string>
 
-    <string name="pref_stocks_key">stocks</string>
+    <string name="pref_stocks_key" translatable="false">stocks</string>
 
-
-    <string name="pref_display_mode_key">displayMode</string>
-    <string name="pref_display_mode_default">@string/pref_display_mode_percentage_key</string>
+    <string name="pref_display_mode_key" translatable="false">displayMode</string>
+    <string name="pref_display_mode_default" translatable="false">@string/pref_display_mode_percentage_key</string>
 
     <string name="pref_display_mode_absolute_key">absolute</string>
     <string name="pref_display_mode_percentage_key">percentage</string>
 
-    <string name="default_stocks_yahoo">YHOO</string>
-    <string name="default_stocks_apple">AAPL</string>
-    <string name="default_stocks_microsoft">MSFT</string>
-    <string name="default_stocks_facebook">FB</string>
+    <string name="default_stocks_yahoo" translatable="false">YHOO</string>
+    <string name="default_stocks_apple" translatable="false">AAPL</string>
+    <string name="default_stocks_microsoft" translatable="false">MSFT</string>
+    <string name="default_stocks_facebook" translatable="false">FB</string>
 
 
     <string name="action_change_units">@string/pref_display_mode_key</string>
@@ -27,24 +26,36 @@
     <string name="dialog_cancel">Cancel</string>
     <string name="dialog_add">Add</string>
 
+    <!-- Errors -->
+
     <string name="error_no_network">No network connectivity! Will load stock cursor when the network is available.</string>
     <string name="error_no_stocks">No stocks added! Hit the floating action button to add one.</string>
+    <string name="pref_status_key" translatable="false">key-status</string>
+
+    <string name="empty_stocks_list">No information about Stocks available.</string>
+    <string name="empty_stocks_list_server_down">No information about Stocks available. The server is not returning data.</string>
+    <string name="empty_stocks_list_server_error">No information about Stocks available. The server is not returning valid data. Please check for an updated version of StockHawk.</string>
+
 
     <string name="toast_stock_added_no_connectivity">Symbol %s added. Will refresh when network available.</string>
     <string name="toast_no_connectivity">Will refresh when network available.</string>
 
+
+    <string name="chart_description">A chart with stock prices for symbol:<xliff:g id="symbol">%1$s</xliff:g></string>
+    <string name="linechart_description">Line Chart showing stocks overtime for symbol:<xliff:g id="symbol">%1$s</xliff:g></string>
+    <string name="linechart">Line Chart</string>
+
+    <string name="title_widget" translatable="false">Stock Hawk</string>
 
     <!--Accessibility strings -->
     <string name="change_units_description_per">Absolute. Change units from absolute to percentage</string>
     <string name="change_units_description_abs">Percentage. Change units from percentage to absolute</string>
     <string name="fab_button_description">Add a new stock</string>
     <string name="dialog_hint_description">Put the symbol of stock (e.g. GOOG)</string>
-    
+
     <!-- A11y -->
     <string name="a11y_symbol">Symbol: <xliff:g id="symbol">%1$s</xliff:g></string>
     <string name="a11y_price">Price: <xliff:g id="price">%1$s</xliff:g></string>
     <string name="a11y_change">Change: <xliff:g id="change">%1$s</xliff:g></string>
 
-    
-    
 </resources>

@@ -16,5 +16,6 @@ public class QuoteIntentService extends IntentService {
     protected void onHandleIntent(Intent intent) {
         Timber.d("Intent handled");
         QuoteSyncJob.getQuotes(getApplicationContext());
+
     }
 }
